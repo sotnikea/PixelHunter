@@ -16,6 +16,7 @@ public class Enemy : MonoBehaviour
 
     public void Respawn()
     {
+        domaine.GetComponent<EnemyDomaine>().RandomSpeed();
         domaine.transform.position = new Vector2(
             Random.Range(GameManager.Instance.enemySpawnX1, GameManager.Instance.enemySpawnX2), 
             Random.Range(GameManager.Instance.enemySpawnY2, GameManager.Instance.enemySpawnY1));
