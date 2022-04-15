@@ -44,11 +44,17 @@ public class Player : MonoBehaviour
         GameManager.Instance.ammo--;
 
         var bullet = Instantiate(bulletPrefab, spawnPoint.transform.position, Quaternion.identity);
-        bullet.GetComponent<Bullet>().Fire();
+        bullet.GetComponent<Bullet>().Fire(Vector2.right);
     }
 
     public void End()
     {
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        Destroy(col.gameObject);
+        GameManager.Instance.GameOver();
     }
 }

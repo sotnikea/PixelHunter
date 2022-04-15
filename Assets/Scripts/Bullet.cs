@@ -7,9 +7,9 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Rigidbody2D rb2d;
 
-    public void Fire()
+    public void Fire(Vector2 direction)
     {
-        rb2d.AddForce(Vector2.right * speed, ForceMode2D.Impulse);
+        rb2d.AddForce(direction * speed, ForceMode2D.Impulse);
         StartCoroutine(BulletDestroy());
     }
 

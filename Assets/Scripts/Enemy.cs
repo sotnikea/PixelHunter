@@ -6,7 +6,24 @@ public class Enemy : MonoBehaviour
 {
     public GameObject domaine;
     public Animator animator;
-        
+
+    public Transform enemySpawnObject;
+    public GameObject bulletPrefab;
+
+    private void Start()
+    {
+        StartCoroutine(EnemyFire());
+    }
+
+    IEnumerator EnemyFire()
+    {
+        float time = Random.Range(1, 5);
+        yield return new WaitForSeconds(time);
+        var bullet = Instantiate(bulletPrefab, enemySpawnObject.position, Quaternion.identity);
+        bullet.GetComponent<Bullet>().Fire(Vector2.left);
+    }
+
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         Destroy(col.gameObject);
