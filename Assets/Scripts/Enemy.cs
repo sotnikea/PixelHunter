@@ -27,18 +27,19 @@ public class Enemy : MonoBehaviour
     }
 
     public void Respawn()
-    {
-        animator.SetTrigger("Start");
+    {        
         domaine.GetComponent<EnemyDomaine>().RandomSpeed();
         domaine.transform.position = new Vector2(
             Random.Range(GameManager.Instance.enemySpawnX1, GameManager.Instance.enemySpawnX2), 
-            Random.Range(GameManager.Instance.enemySpawnY2, GameManager.Instance.enemySpawnY1));        
+            Random.Range(GameManager.Instance.enemySpawnY2, GameManager.Instance.enemySpawnY1));
+        animator.SetTrigger("Start");
     }
 
     private void Update()
     {
         if (gameObject.transform.position.x < GameManager.Instance.player.transform.position.x)
         {
+            Respawn();
             GameManager.Instance.GameOver();
         }        
     }
@@ -47,6 +48,7 @@ public class Enemy : MonoBehaviour
     {
         if (col.gameObject.CompareTag("Player"))
         {
+            Respawn();
             GameManager.Instance.GameOver();
         }
     }

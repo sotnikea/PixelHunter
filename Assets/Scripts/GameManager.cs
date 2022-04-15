@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] enemies;
 
     public int score = 0;
+    public int life = 3;
 
     public static GameManager Instance { get; private set; }
 
@@ -43,10 +44,16 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        player.GetComponent<Animator>().SetTrigger("GameOver");
-        foreach (var en in enemies)
+        life--;
+
+        if (life == 0)
         {
-            Destroy(en);            
+            player.GetComponent<Animator>().SetTrigger("GameOver");
+            foreach (var en in enemies)
+            {
+                Destroy(en);
+            }
         }
+        
     }
 }
