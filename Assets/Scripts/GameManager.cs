@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject[] enemies;
 
+    public int score = 0;
+
     public static GameManager Instance { get; private set; }
 
     private void Awake()

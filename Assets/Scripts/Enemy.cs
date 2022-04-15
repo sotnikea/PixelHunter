@@ -11,6 +11,19 @@ public class Enemy : MonoBehaviour
     {
         Destroy(col.gameObject);
         animator.SetTrigger("Respawn");
+
+        if (gameObject.CompareTag("Square"))
+        {
+            GameManager.Instance.score += 3;
+        }
+        else if (gameObject.CompareTag("Circle"))
+        {
+            GameManager.Instance.score += 1;
+        }
+        else if (gameObject.CompareTag("Hexagon"))
+        {
+            GameManager.Instance.score += 2;
+        }
     }
 
     public void Respawn()
