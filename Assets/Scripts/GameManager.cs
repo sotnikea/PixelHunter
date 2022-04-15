@@ -10,7 +10,9 @@ public class GameManager : MonoBehaviour
     public float enemySpawnY2;
 
     public int ammo = 10;
-   
+
+    public GameObject player;
+    public GameObject[] enemies;
 
     public static GameManager Instance { get; private set; }
 
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(AddAmmo());
     }
+       
 
     IEnumerator AddAmmo()
     {
@@ -34,5 +37,14 @@ public class GameManager : MonoBehaviour
                 ammo++;
             }
         }        
+    }
+
+    public void GameOver()
+    {
+        player.GetComponent<Animator>().SetTrigger("GameOver");
+        foreach (var en in enemies)
+        {
+            Destroy(en);            
+        }
     }
 }

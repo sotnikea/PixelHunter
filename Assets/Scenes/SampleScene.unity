@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 188834588}
   m_Layer: 0
   m_Name: EnemyCircle
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -472,7 +472,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &603636919
 GameObject:
@@ -565,7 +565,7 @@ GameObject:
   - component: {fileID: 769509105}
   m_Layer: 0
   m_Name: EnemyHexagon
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -757,7 +757,7 @@ GameObject:
   - component: {fileID: 1021089584}
   m_Layer: 0
   m_Name: EnemySquare
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1032,6 +1032,8 @@ MonoBehaviour:
   enemySpawnY1: 2.5
   enemySpawnY2: -2.5
   ammo: 10
+  player: {fileID: 138449751}
+  enemies: []
 --- !u!4 &1584853107
 Transform:
   m_ObjectHideFlags: 0
@@ -1096,7 +1098,7 @@ PrefabInstance:
     - target: {fileID: 2836049168346915664, guid: 3e3161a629721c349b68786658cbc02f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2836049168346915664, guid: 3e3161a629721c349b68786658cbc02f,
         type: 3}

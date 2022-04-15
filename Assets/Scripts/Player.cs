@@ -47,4 +47,8 @@ public class Player : MonoBehaviour
         bullet.GetComponent<Bullet>().Fire();
     }
 
+    public void End()
+    {
+        Destroy(gameObject);
+    }
 }
